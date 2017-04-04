@@ -306,5 +306,5 @@ app.use('/auth', authRoutes)
 
 //start server and listen
 app.listen(port, () => {
-  console.log('api running on port ${port}')
+  console.log(`api running on port ${port}`)
 })
