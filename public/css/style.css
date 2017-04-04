@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+a {
+  color: #00bcd4;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.4s;
+}
+
+a:hover {
+  color: #1976d2;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.top-bar {
+  padding: 10px 15px;
+  /*margin-bottom: 50px;*/
+  border-bottom: 1px solid #777;
+}
+.top-bar::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.top-bar-left {
+  float: left;
+  font-size: 1.5em;
+}
+
+.top-bar-right {
+  float: right;
+}
+
+.top-bar a,
+.nav a {
+  margin: 0 8px;
+}
+
+.container {
+  margin: 50px auto;
+  text-align: center;
+  width: 700px;
+  position:relative;
+}
+
+.bottle-container {
+  text-align: center;
+  display: inline-block;
+  margin-top: 50px;
+  margin-left: 250px;
+  width: 960px;
+  position:relative;
+}
+
+.card-heading {
+  padding: 16px;
+}
+
+.field-line, .button-line {
+  padding: 16px;
+}
+
+.inline-field {
+  display: inline-block;
+}
+
+
+.error-message {
+  padding: 0 16px;
+  color: tomato;
+}
+
+.back-text {
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.back-Arrow {
+  display: block;
+  vertical-align: middle;
+}
+
+.success-message {
+  padding: 0 16px;
+  color: green;
+}
