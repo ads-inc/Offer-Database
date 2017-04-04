@@ -22,6 +22,7 @@ const authCheckMiddleware = require('./middleware/auth-check')
 const app = express()
 const router = express.Router()
 
+
 //set port to 8081 or option
 var port = process.env.API_PORT || 8081;
 //db login details
@@ -44,7 +45,9 @@ passport.use('local-login', localLoginStrategy)
 
 //Set CORS Headers
 app.use((req, res, next) => {
+
   res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080')
+
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE')
   res.setHeader('Access-Control-Allow-Headers','Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')

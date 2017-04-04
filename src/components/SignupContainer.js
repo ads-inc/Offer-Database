@@ -40,7 +40,7 @@ export default class SignupContainer extends Component {
 
      // create an AJAX request
 
-    //  axios.post('http://127.0.0.1:8081/auth/signup', formData)
+
     //    .then(res => {
     //      this.setState({
     //        errors: {}

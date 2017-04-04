@@ -154,7 +154,7 @@ const style = {
     textAlign: 'center',
     width: '30%',
     margin: 'auto',
-    minWidth: 808
+    minWidth: 300
   },
   loginTitle: {
     fontWeight: 'bold'

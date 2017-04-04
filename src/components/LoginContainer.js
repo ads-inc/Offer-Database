@@ -61,7 +61,7 @@ export default class LoginContainer extends Component {
         })
       })
     // const xhr = new XMLHttpRequest();
-    // xhr.open('post', 'localhost:8081/auth/login');
+
     // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
     // xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');

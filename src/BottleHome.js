@@ -11,6 +11,7 @@ import style from './style';
 export default class BottleHome extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       secretData: ''
     }
@@ -38,6 +39,7 @@ export default class BottleHome extends Component {
     // axios({
     //   method: 'get',
     //   url: 'http://127.0.0.1:8081/api/dashboard',
+
     //   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     //   withCredentials: true,
     //   auth: `bearer ${Auth.getToken()}`,

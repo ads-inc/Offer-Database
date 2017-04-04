@@ -30,7 +30,8 @@ export default class BottleBox extends Component{
           this.setState({ data: res.data });
         })
         console.log('loaded')
-      }, 808)
+
+      }, 300)
     }
 
   }
@@ -98,6 +99,7 @@ export default class BottleBox extends Component{
   // axios({
   //   method: 'get',
   //   url: 'http://127.0.0.1:8081/api/dashboard',
+
   //   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   //   withCredentials: true,
   //   auth: `bearer ${Auth.getToken()}`,
