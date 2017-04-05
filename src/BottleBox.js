@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { browserHistory } from 'react-router';
 import Card from 'material-ui/Card'
 import axios from 'axios';
 import BottleList from './BottleList';
@@ -7,6 +6,8 @@ import BottleForm from './BottleForm';
 import UrlList from './UrlList'
 import Auth from './modules/Auth';
 import style from './style';
+
+axios.defaults.headers.common['Authorization'] = `bearer ${Auth.getToken()}`;
 
 export default class BottleBox extends Component{
   constructor(props){
@@ -29,8 +30,6 @@ export default class BottleBox extends Component{
         .then(res => {
           this.setState({ data: res.data });
         })
-        console.log('loaded')
-
       }, 300)
     }
 
@@ -64,6 +63,7 @@ export default class BottleBox extends Component{
     this.loadBottlesFromServer()
 
   }
+
   handleBottleUpdate(id, bottle) {
     axios.put(`${this.state.url}/${id}`, bottle)
     .then(res => {
@@ -75,6 +75,7 @@ export default class BottleBox extends Component{
 
     this.loadBottlesFromServer();
   }
+
   handleUrlChange = (url, vertical) => {
 
     this.setState({
@@ -84,27 +85,13 @@ export default class BottleBox extends Component{
     console.log(this.state.url, vertical);
     this.loadBottlesFromServer(url);
   }
-  // handleBackArrow = (e) => {
-  //
-  //   browserHistory.push('/');
-  //   window.location.reload(true);
-  //
-  // }
+
   componentDidMount() {
     if (this.state.url !== ''){
       this.loadBottlesFromServer()
 
   }
-  axios.get('http://127.0.0.1:8081/api/dashboard')
-  // axios({
-  //   method: 'get',
-  //   url: 'http://127.0.0.1:8081/api/dashboard',
-
-  //   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  //   withCredentials: true,
-  //   auth: `bearer ${Auth.getToken()}`,
-  //   responseType: 'json'
-  // })
+  axios.get('/api/dashboard')
     .then(res => {
       this.setState({
         secretData: res.data.message
@@ -112,7 +99,6 @@ export default class BottleBox extends Component{
     })
     .catch(err => {
       console.log(err.response)
-      console.log(`bearer ${Auth.getToken()}`)
     })
     // setInterval(this.loadBottlesFromServer, this.props.pollInterval);
   }
@@ -139,7 +125,7 @@ export default class BottleBox extends Component{
             onImageUpdate={ this.handleBottleUpdate } />
         </div>
       </Card> : <div className='bottle-container'>
-      Choose an option in the menu to the right to get started
+      Choose an option in the menu to the left to get started
       </div> }
     </div>
 

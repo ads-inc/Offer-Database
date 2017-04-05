@@ -44,7 +44,7 @@ export default class LoginContainer extends Component {
     const formData = `email=${email}&password=${password}`;
 
     // create an AJAX request
-    axios.post('http://127.0.0.1:8081/auth/login', formData)
+    axios.post('/auth/login', formData)
       .then(res => {
         this.setState({
           errors: {}

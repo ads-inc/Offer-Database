@@ -3,6 +3,7 @@ import Home from '../Home';
 import SignupContainer from '../components/SignupContainer';
 import LoginContainer from '../components/LoginContainer';
 import BottleHome from '../BottleHome';
+import OfferIdsContainer from '../OfferIdsContainer';
 import Auth from '../modules/Auth';
 
 
@@ -16,6 +17,16 @@ const routes = {
           callback(null, BottleHome);
         } else {
           callback(null, Home)
+        }
+      }
+    },
+    {
+      path: '/offerids',
+      getComponent: (location, callback) => {
+        if(Auth.isUserAuthenticated()) {
+          callback(null, OfferIdsContainer);
+        } else {
+          callback(null, Home);
         }
       }
     },

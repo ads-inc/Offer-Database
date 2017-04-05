@@ -26,15 +26,16 @@ const router = express.Router()
 //set port to 8081 or option
 var port = process.env.API_PORT || 8081;
 //db login details
-// var uri = 'mongodb://' + creds.user + ':' + creds.pass + '@ds151909.mlab.com:51909/product-store'
+
 require('./model').connect(config.dbUri);
-//db config
-// mongoose.Promise = global.Promise
-// mongoose.connect(config.dbUri)
 //configure bodyParser for url and json encoding
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json())
-app.use(express.static('public'))
+if (process.env.NODE_ENV == 'production'){
+  app.use(express.static('build'))
+} else {
+  app.use(express.static('public'))
+}
 // //passport user auth
 app.use(passport.initialize())
 
@@ -43,21 +44,21 @@ passport.use('local-login', localLoginStrategy)
 //
 
 
-//Set CORS Headers
+// Set CORS Headers
 app.use((req, res, next) => {
 
-  res.setHeader('Access-Control-Allow-Origin', '*')
-
-  res.setHeader('Access-Control-Allow-Credentials', 'true')
-  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE')
-  res.setHeader('Access-Control-Allow-Headers','Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')
-
-  //remove caching
+//   res.setHeader('Access-Control-Allow-Origin', '*')
+//
+//   res.setHeader('Access-Control-Allow-Credentials', 'true')
+//   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE')
+//   res.setHeader('Access-Control-Allow-Headers','Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')
+//
+//   //remove caching
   res.setHeader('Cache-Control', 'no-cache')
   next()
 })
 
-//routes
+// routes
 router.get('/', (req, res) =>{
   res.json({ message: 'API Initialized'})
 })
@@ -291,7 +292,9 @@ router.route('/ed')
   })
 // use router when /api is called
 
-// app.use('/api', authCheckMiddleware)
+// router.route('/offer-ids')
+
+app.use('/api', authCheckMiddleware)
 app.use('/api', apiRoutes)
 
 app.use('/api', router)

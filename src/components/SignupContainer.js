@@ -60,7 +60,7 @@ export default class SignupContainer extends Component {
          method: 'post',
          data: formData,
          responseType: 'json',
-         url: 'http://127.0.0.1:8081/auth/signup'
+         url: '/auth/signup'
        })
        .then(res => {
          this.setState({
