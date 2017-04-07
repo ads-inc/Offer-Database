@@ -16,6 +16,7 @@
     "material-ui": "^0.17.1",
     "mongoose": "^4.8.6",
     "mpromise": "^0.5.5",
+    "node-gyp": "^3.6.0",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
@@ -31,7 +32,7 @@
     "react-scripts": "0.9.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run build && node server.js",
     "start-dev": "nf start -p 8080",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/ads-inc/Offer-Database.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[credential]
+	helper = gcloud.sh
+[remote "google"]
+	url = https://source.developers.google.com/p/balling-offers/r/balling-offers
+	fetch = +refs/heads/*:refs/remotes/google/*
