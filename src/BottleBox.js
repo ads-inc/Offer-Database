@@ -94,8 +94,8 @@ export default class BottleBox extends Component{
       this.loadBottlesFromServer()
 
   }
-  // axios.get('/api/dashboard')
-  axios.get('http://127.0.0.1:8081/api/dashboard')
+  axios.get('/api/dashboard')
+  // axios.get('http://127.0.0.1:8081/api/dashboard')
     .then(res => {
       this.setState({
         secretData: res.data.message
@@ -104,7 +104,6 @@ export default class BottleBox extends Component{
     .catch(err => {
       console.log(err.response)
     })
-    // setInterval(this.loadBottlesFromServer, this.props.pollInterval);
   }
   didComponentUpdate() {
 
