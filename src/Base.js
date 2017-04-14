@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
+// import UrlList from './UrlList';
+// import style from './style';
 import Auth from './modules/Auth';
 
 const Base = ({ children }) => (

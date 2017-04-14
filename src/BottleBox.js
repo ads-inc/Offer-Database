@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Card from 'material-ui/Card'
+import { Link } from 'react-router';
+import RaisedButton from 'material-ui/RaisedButton';
 import axios from 'axios';
 import BottleList from './BottleList';
 import BottleForm from './BottleForm';
@@ -7,7 +9,8 @@ import UrlList from './UrlList'
 import Auth from './modules/Auth';
 import style from './style';
 
-axios.defaults.headers.common['Authorization'] = `bearer ${Auth.getToken()}`;
+// => Use in production
+// axios.defaults.headers.common['Authorization'] = `bearer ${Auth.getToken()}`;
 
 export default class BottleBox extends Component{
   constructor(props){
@@ -91,7 +94,8 @@ export default class BottleBox extends Component{
       this.loadBottlesFromServer()
 
   }
-  axios.get('/api/dashboard')
+  // axios.get('/api/dashboard')
+  axios.get('http://127.0.0.1:8081/api/dashboard')
     .then(res => {
       this.setState({
         secretData: res.data.message
@@ -101,6 +105,9 @@ export default class BottleBox extends Component{
       console.log(err.response)
     })
     // setInterval(this.loadBottlesFromServer, this.props.pollInterval);
+  }
+  didComponentUpdate() {
+
   }
 
   render() {
@@ -112,11 +119,15 @@ export default class BottleBox extends Component{
             onUrlChange={ this.handleUrlChange }
             vertical={this.state.vertical}
             />
+          <p></p>
+            <Link to='/'>
+              <RaisedButton labelPosition={'before'} secondary={true} style={ style.homeLink } label='Back' />
+            </Link>
         </div>
         {this.state.url ?
       <Card className='bottle-container'>
         <div style={ style.bottleBox }>
-          <h2 style={ style.header }>{this.state.vertical} Offers</h2>
+          <h2 style={ style.header }>{ this.state.vertical } Offers</h2>
           <BottleForm onBottleSubmit={ this.handleBottleSubmit }/>
           <BottleList
             data={ this.state.data }

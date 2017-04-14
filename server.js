@@ -46,16 +46,20 @@ passport.use('local-login', localLoginStrategy)
 
 // Set CORS Headers
 app.use((req, res, next) => {
+if (process.env.NODE_ENV === 'production') {
+  res.setHeader('Cache-Control', 'no-cache')
+  next()
+} else {
+  res.setHeader('Access-Control-Allow-Origin', '*')
 
-//   res.setHeader('Access-Control-Allow-Origin', '*')
-//
-//   res.setHeader('Access-Control-Allow-Credentials', 'true')
-//   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE')
-//   res.setHeader('Access-Control-Allow-Headers','Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')
-//
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE')
+  res.setHeader('Access-Control-Allow-Headers','Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')
+
 //   //remove caching
   res.setHeader('Cache-Control', 'no-cache')
   next()
+}
 })
 
 // routes
@@ -294,7 +298,7 @@ router.route('/ed')
 
 // router.route('/offer-ids')
 
-app.use('/api', authCheckMiddleware)
+// app.use('/api', authCheckMiddleware)
 app.use('/api', apiRoutes)
 
 app.use('/api', router)

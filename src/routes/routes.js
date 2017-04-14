@@ -4,6 +4,7 @@ import SignupContainer from '../components/SignupContainer';
 import LoginContainer from '../components/LoginContainer';
 import BottleHome from '../BottleHome';
 import OfferIdsContainer from '../OfferIdsContainer';
+import FileEditorContainer from '../FileEditorContainer';
 import Auth from '../modules/Auth';
 
 
@@ -14,7 +15,7 @@ const routes = {
       path: '/',
       getComponent: (location, callback) => {
         if (Auth.isUserAuthenticated()) {
-          callback(null, BottleHome);
+          callback(null, FileEditorContainer);
         } else {
           callback(null, Home)
         }
@@ -44,6 +45,16 @@ const routes = {
         Auth.deauthenticateUser();
 
         replace('/');
+      }
+    },
+    {
+      path: '/productupload',
+      getComponent: (location, callback) => {
+        if(Auth.isUserAuthenticated()) {
+          callback(null, BottleHome);
+        } else {
+          callback(null, Home);
+        }
       }
     }
   ]

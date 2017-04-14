@@ -2,23 +2,27 @@ import React, { Component } from 'react';
 // import { List, ListItem } from 'material-ui/List';
 // import { browserHistory } from 'react-router';
 import BottleBox from './BottleBox';
-// import UrlList from './UrlList';
+import UrlList from './UrlList';
+import RaisedButton from 'material-ui/RaisedButton'
+import { Link } from 'react-router'
 // import Login from './Login/Login';
 // import Auth from './modules/Auth';
 // import axios from 'axios';
-// import style from './style';
+import style from './style';
 
 export default class BottleHome extends Component {
   // constructor(props) {
   //   super(props);
   //
   //   this.state = {
-  //     secretData: ''
+  //     secretData: '',
+  //     vertica: ''
   //   }
+  // }
   //   this.handleUrlChange = this.handleUrlChange.bind(this);
   //   this.handleBackArrow = this.handleBackArrow.bind(this);
   // }
-  // handleUrlChange (url, vertical){
+  // handleUrlChange = (url, vertical) => {
   //
   //   this.setState({
   //     url: url,
@@ -32,34 +36,16 @@ export default class BottleHome extends Component {
   //   window.location.reload(true);
   //
   // }
-  // componentDidMount() {
-  //   // axios.defaults.headers.common['Authorization'] = 'bearer ' + Auth.getToken();
   //
-  //   axios.get('http://127.0.0.1:8081/api/dashboard')
-  //   // axios({
-  //   //   method: 'get',
-  //   //   url: 'http://127.0.0.1:8081/api/dashboard',
-  //
-  //   //   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  //   //   withCredentials: true,
-  //   //   auth: `bearer ${Auth.getToken()}`,
-  //   //   responseType: 'json'
-  //   // })
-  //     .then(res => {
-  //       this.setState({
-  //         secretData: res.data.message
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.log(err.response)
-  //       console.log(`bearer ${Auth.getToken()}`)
-  //     })
-  // }
   render() {
     return(
-          <BottleBox
-            pollInterval={2000}
-             />
+      <div>
+
+        <BottleBox
+          pollInterval={2000}
+           />
+
+      </div>
     )
   }
 

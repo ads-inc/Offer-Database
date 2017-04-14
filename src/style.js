@@ -129,7 +129,7 @@ const style = {
   },
   homeLink: {
     display: 'block',
-    padding: '10px 5px'
+    margin: '10px 5px'
 
   },
   homeLinkContainer: {
@@ -141,7 +141,7 @@ const style = {
   },
   homeMenu: {
     width: '100%',
-    padding: '50px 0 0 0'
+    padding: '15px 0 0 0'
   },
   backArrow: {
     display: 'inline-block',
@@ -198,6 +198,15 @@ const style = {
     textAlign: 'center',
     margin: 0,
     padding: 5
+  },
+  fileUpload: {
+    width: '80%',
+    margin: '0 auto 10px auto',
+    height: '200px',
+    borderWidth: 2,
+    borderColor: 'rgb(102, 102, 102)',
+    borderStyle: 'dashed',
+    borderRadius: 5
   }
 }
 module.exports = style;
