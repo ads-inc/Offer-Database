@@ -207,6 +207,9 @@ const style = {
     borderColor: 'rgb(102, 102, 102)',
     borderStyle: 'dashed',
     borderRadius: 5
+  },
+  selectButton: {
+    margin: '15px 0 0 0'
   }
 }
 module.exports = style;
