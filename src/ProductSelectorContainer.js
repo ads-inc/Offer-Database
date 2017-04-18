@@ -9,14 +9,6 @@ export default class ProductSelectorContainer extends Component {
       selected: false
     }
   }
-
-    // let ids = this.state.ids
-    // let addIds = ids.concat([e.target.parentNode.parentNode.parentNode.id])
-    // this.setState({
-    //   ids: addIds
-    // })
-    // console.log(ids, addIds)
-
   handleRowSelection = (rowArray) => {
     let productData= ''
 
@@ -38,7 +30,7 @@ export default class ProductSelectorContainer extends Component {
         return data[item]
       })
       console.log(productData)
-      // return productdata
+
 
     } else if (rowArray === 'all'){
     productData = this.props.data.slice(0).reverse().map((item, index) => {
@@ -51,7 +43,7 @@ export default class ProductSelectorContainer extends Component {
           step1ImageUrl += item.step1ImageUrl
           step2ImageUrl += item.step2ImageUrl
           let product = {step1: step1, step2: step2, step1ImageUrl: step1ImageUrl, step2ImageUrl: step2ImageUrl}
-          return product        
+          return product
       })
       console.log(productData)
       // return productdata
@@ -61,7 +53,6 @@ export default class ProductSelectorContainer extends Component {
 
     console.log(productData)
     this.props.onProductSelect(productData)
-    // Now pass productdata into another function that loops through the array and fills product data into landers
   }
   render() {
     return(

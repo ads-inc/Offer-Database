@@ -11,15 +11,19 @@ import Auth from '../modules/Auth';
 const routes = {
   component: Base,
   childRoutes: [
+    // {
+    //   path: '/',
+    //   getComponent: (location, callback) => {
+    //     if (Auth.isUserAuthenticated()) {
+    //       callback(null, FileEditorContainer);
+    //     } else {
+    //       callback(null, Home)
+    //     }
+    //   }
+    // },
     {
       path: '/',
-      getComponent: (location, callback) => {
-        if (Auth.isUserAuthenticated()) {
-          callback(null, FileEditorContainer);
-        } else {
-          callback(null, Home)
-        }
-      }
+      component: FileEditorContainer
     },
     {
       path: '/offerids',

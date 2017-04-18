@@ -6,7 +6,9 @@ import fileDownload from 'react-file-download'
 import HbsContainer from './HbsContainer'
 import UrlList from './UrlList'
 import ProductSelectorContainer from './ProductSelectorContainer'
+import Help from './Help'
 import RaisedButton from 'material-ui/RaisedButton'
+import Auth from './modules/Auth'
 import style from './style'
 
 export default class FileEditorContainer extends Component {
@@ -73,6 +75,12 @@ export default class FileEditorContainer extends Component {
       select: !this.state.select
     })
   }
+  handleHelp = (e) => {
+    e.preventDefault();
+    this.setState({
+      data: ''
+    })
+  }
   compnentDidMount() {
     console.log('files')
   }
@@ -83,15 +91,21 @@ export default class FileEditorContainer extends Component {
         <div style={ style.homeLinkContainer }>
           <UrlList
             onUrlChange={this.handleVerticalSelect}/>
+          <RaisedButton labelPosition={'before'} primary={true} style={style.homeLink} label='Help' onClick={this.handleHelp} />
 
+          {Auth.isUserAuthenticated() ? (
+            <div>
+          <p style={{textAlign: 'center', fontWeight: 'bold'}}>Admin Actions</p>
 
-          <p style={{textAlign: 'center'}}>Other Actions</p>
-          <Link to='/productupload'>
-            <RaisedButton labelPosition={'before'} primary={true} style={ style.homeLink } label='Add Offers' />
-          </Link>
-          <Link to='/offerids'>
-            <RaisedButton labelPosition={'before'} primary={true} style={ style.homeLink } label='Add Ids' />
-          </Link>
+          <div>
+            <Link to='/productupload'>
+              <RaisedButton labelPosition={'before'} primary={true} style={ style.homeLink } label='Add Offers' />
+            </Link>
+            <Link to='/offerids'>
+              <RaisedButton labelPosition={'before'} primary={true} style={ style.homeLink } label='Add Ids' />
+            </Link>
+          </div>
+        </div>): <div style={{textAlign: 'center', marginTop: '30px'}}><Link to='/login'>Login</Link> to add/edit products</div>}
 
         </div>
         <div className='bottle-container'>
@@ -101,10 +115,12 @@ export default class FileEditorContainer extends Component {
             onProductSelect={this.handleProductSelect}/> :
           <HbsContainer
             onLanderUpload={this.handleLanderFill}/>):
-            <p style={{textAlign: 'center'}}>Choose an option in the bar to the right</p>}
+            <div style={{textAlign: 'center'}}>
+              <Help />
+            </div>}
             { this.state.data ? (!this.state.select ?
-                <RaisedButton labelPosition={'before'} primary={true}  label='Select More' onClick={this.toggleSelect} />  :
-             <RaisedButton labelPosition={'before'} primary={true} label='Done Selecting' onClick={this.toggleSelect}/>) : null}
+                <RaisedButton labelPosition={'before'} primary={true} style={style.selectButton} label='Select More' onClick={this.toggleSelect} />  :
+             <RaisedButton labelPosition={'before'} primary={true} style={style.selectButton}label='Done Selecting' onClick={this.toggleSelect}/>) : null}
         </div>
       </div>
     )

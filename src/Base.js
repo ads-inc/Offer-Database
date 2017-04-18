@@ -17,7 +17,6 @@ const Base = ({ children }) => (
       ) : (
       <div className='top-bar-right'>
         <Link to='/login'>Login</Link>
-        <Link to='/signup'>Sign Up</Link>
       </div>
     )}
     </div>

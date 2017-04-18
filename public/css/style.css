@@ -92,3 +92,24 @@ a:hover {
   padding: 0 16px;
   color: green;
 }
+
+.help-container{
+  text-align: left;
+}
+
+.list-parent {
+  padding: 15px;
+}
+ .list-child {
+   padding: 15px;
+}
+
+.list-parent img{
+  display: block;
+  padding: 15px;
+  width: 40%;
+}
+
+.list-child-child {
+  list-style: none
+}
