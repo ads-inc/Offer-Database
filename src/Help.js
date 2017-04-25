@@ -1,7 +1,7 @@
 import React from 'react'
-import Done from './doneselecting.png'
-import Product from './productselect.png'
-import Lander from './uploadlander.png'
+import Done from './images/doneselecting.png'
+import Product from './images/productselect.png'
+import Lander from './images/uploadlander.png'
 
 const Help = () => {
   return (
